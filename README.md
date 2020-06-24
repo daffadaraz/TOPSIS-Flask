@@ -1,5 +1,5 @@
 # TOPSIS Flask
- DSS TOPSIS Method using flask using .csv as input 
+ DSS TOPSIS Method using flask and .csv as input 
 
  Demo Site - [TOPSIS](http://daffada.pi-dns.me:2204/spk)
 
@@ -17,3 +17,5 @@
  # Contributor
  - Me (Developer)
  - Aufa Tafjyra (Documentation)
+ 
+ SPK - Sistem Pendukung Keputusan = DSS - Decision Support System
