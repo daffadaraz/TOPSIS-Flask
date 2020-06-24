@@ -4,7 +4,6 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template,request
-from werkzeug import secure_filename
 from SPKTOPSIS import app
 from SPKTOPSIS.Controller.SPK import topsis
 from io import StringIO

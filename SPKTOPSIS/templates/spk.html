@@ -21,124 +21,144 @@
 </form>
 
 {% if not upload %}
-<h4> DATA CONTOH </h4>
+    <h4> DATA CONTOH - Kandidat Kreditor </h4>
 {% endif %}
 
-<h3>Data</h3>
-<table border="1" width="100%" align="center">
-    <thead>
-        <tr>
-            <th>
-                No.
-            </th>
-            {% for data in datas.data %}
-            <th>
-                {{ data }}
-            </th>
-            {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for key,value in datas.data.iterrows() %}
-        <tr>
-            <td class="nama">
-                {{ loop.index }}
-            </td>
-            <td class="nama">
-                {{ value.0 }}
-            </td>
-            <td class="lain">
-                {{ value.1 }}
-            </td>
-            <td class="lain">
-                {{ value.2 }}
-            </td>
-            <td class="lain">
-                {{ value.3 }}
-            </td>
-            <td class="lain">
-                {{ value.4 }}
-            </td>
-        </tr>
-        {% endfor %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Data</h3>
+            <table border="1" width="100%" align="center">
+                <thead>
+                    <tr>
+                        <th>
+                            No.
+                        </th>
+                        {% for data in datas.data %}
+                        <th>
+                            {{ data }}
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key,value in datas.data.iterrows() %}
+                        {% if loop.index < 21 %}
+                            <tr>
+                                <td class="nama">
+                                    {{ loop.index }}
+                                </td>
+                                <td class="nama">
+                                    {{ value.0 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.1 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.2 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.3 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.4 }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if datas.data | length > 20 %}
+                <span>... Dan seterusnya ...</span>
+            {% endif %}
+            <p>{{datas.data | length}} Data</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Weight</h3>
+            <table border="1" width="100%" align="center">
+                <thead>
+                    <tr>
+                        {% for data in datas.weight %}
+                        <th>
+                            {{ data }}
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key,value in datas.weight.iterrows() %}
+                    <tr>
+                        <td class="nama">
+                            {{ value.0 }}
+                        </td>
+                        <td class="lain">
+                            {{ value.1 }}
+                        </td>
+                    </tr>
+                    {% endfor %}
 
-    </tbody>
-</table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-<h3>Weight</h3>
-<table border="1" width="100%" align="center">
-    <thead>
-        <tr>
-            {% for data in datas.weight %}
-            <th>
-                {{ data }}
-            </th>
-            {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for key,value in datas.weight.iterrows() %}
-        <tr>
-            <td class="nama">
-                {{ value.0 }}
-            </td>
-            <td class="lain">
-                {{ value.1 }}
-            </td>
-        </tr>
-        {% endfor %}
-
-    </tbody>
-</table>
-
-<h3>Sorted</h3>
-<table border="1" width="100%" align="center">
-    <thead>
-        <tr>
-            <th>
-                No.
-            </th>
-            {% for data in datas.sorted %}
-            <th>
-                {{ data }}
-            </th>
-            {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for key,value in datas.sorted.iterrows() %}
-        <tr {% if loop.index == 1 %}
-                style="font-size: larger;"
-            {% elif loop.index == 2 %}
-                style="font-size: large;"
-            {% elif loop.index == 3 %}
-                style="font-size: medium;"
-            {% endif %}>
-            <td class="nama">
-                {{ loop.index }} ( {{ key+1 }} )
-            </td>
-            <td class="nama">
-                {{ value.0 }}
-            </td>
-            <td class="lain">
-                {{ value.1 }}
-            </td>
-            <td class="lain">
-                {{ value.2 }}
-            </td>
-            <td class="lain">
-                {{ value.3 }}
-            </td>
-            <td class="lain">
-                {{ value.4 }}
-            </td>
-            <td class="lain">
-                {{ value.5 }}
-            </td>
-        </tr>
-        {% endfor %}
-
-    </tbody>
-</table>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Sorted</h3>
+            <table border="1" width="100%" align="center">
+                <thead>
+                    <tr>
+                        <th>
+                            No.
+                        </th>
+                        {% for data in datas.sorted %}
+                        <th>
+                            {{ data }}
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key,value in datas.sorted.iterrows() %}
+                        {% if loop.index < 101 %}
+                            <tr {% if loop.index == 1 %}
+                                    style="font-size: larger;"
+                                {% elif loop.index == 2 %}
+                                    style="font-size: large;"
+                                {% elif loop.index == 3 %}
+                                    style="font-size: medium;"
+                                {% endif %}>
+                                <td class="nama">
+                                    {{ loop.index }}
+                                </td>
+                                <td class="nama">
+                                    {{ value.0 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.1 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.2 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.3 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.4 }}
+                                </td>
+                                <td class="lain">
+                                    {{ value.5 }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if datas.sorted | length > 100 %}
+                <span>Hanya Menampilkan hingga 100 data.</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}
