@@ -1,0 +1,144 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<script src="https://profile.codersrank.io/widget/widget.js"></script>
+
+<h2>{{ title }}</h2>
+
+<h4> Input Data </h4>
+<span>
+    Menggunakan format data .csv (Comma-Seperated Values) yang dapat di download contohnya seperti ini
+    <a href="/static/content/data.csv" download="contoh_data.csv">Contoh Data</a> --
+    <a href="/static/content/weight.csv" download="contoh_weight.csv">Contoh Weight</a>
+</span>
+<p>Jumlah Kireteria harus sama untuk Data dan Weight nya !</p>
+<form method="POST" enctype="multipart/form-data">
+    Data :
+    <input type=file name=data accept=".csv" required></br>
+    Weight :
+    <input type=file name=weight accept=".csv" required></br>
+    <input type=submit value=Upload>
+</form>
+
+{% if not upload %}
+<h4> DATA CONTOH </h4>
+{% endif %}
+
+<h3>Data</h3>
+<table border="1" width="100%" align="center">
+    <thead>
+        <tr>
+            <th>
+                No.
+            </th>
+            {% for data in datas.datakreditor %}
+            <th>
+                {{ data }}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for key,value in datas.datakreditor.iterrows() %}
+        <tr>
+            <td class="nama">
+                {{ loop.index }}
+            </td>
+            <td class="nama">
+                {{ value.0 }}
+            </td>
+            <td class="lain">
+                {{ value.1 }}
+            </td>
+            <td class="lain">
+                {{ value.2 }}
+            </td>
+            <td class="lain">
+                {{ value.3 }}
+            </td>
+            <td class="lain">
+                {{ value.4 }}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<h3>Weight</h3>
+<table border="1" width="100%" align="center">
+    <thead>
+        <tr>
+            {% for data in datas.weight %}
+            <th>
+                {{ data }}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for key,value in datas.weight.iterrows() %}
+        <tr>
+            <td class="nama">
+                {{ value.0 }}
+            </td>
+            <td class="lain">
+                {{ value.1 }}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<h3>Sorted</h3>
+<table border="1" width="100%" align="center">
+    <thead>
+        <tr>
+            <th>
+                No.
+            </th>
+            {% for data in datas.sortedkreditor %}
+            <th>
+                {{ data }}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for key,value in datas.sortedkreditor.iterrows() %}
+        <tr {% if loop.index == 1 %}
+                style="font-size: larger;"
+            {% elif loop.index == 2 %}
+                style="font-size: large;"
+            {% elif loop.index == 3 %}
+                style="font-size: medium;"
+            {% endif %}>
+            <td class="nama">
+                {{ loop.index }} ( {{ key+1 }} )
+            </td>
+            <td class="nama">
+                {{ value.0 }}
+            </td>
+            <td class="lain">
+                {{ value.1 }}
+            </td>
+            <td class="lain">
+                {{ value.2 }}
+            </td>
+            <td class="lain">
+                {{ value.3 }}
+            </td>
+            <td class="lain">
+                {{ value.4 }}
+            </td>
+            <td class="lain">
+                {{ value.5 }}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
