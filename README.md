@@ -11,11 +11,13 @@
  - Numpy
  
  >Tested on Windows 10 - Visual Studio 2019 Community - Python 3.7
-
+ >
  >Written in Bahasa Indonesia
+ >
+ >SPK - Sistem Pendukung Keputusan == DSS - Decision Support System
 
  # Contributor
  - Me (Developer)
  - Aufa Tafjyra (Documentation)
  
- SPK - Sistem Pendukung Keputusan = DSS - Decision Support System
+ 
