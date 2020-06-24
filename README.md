@@ -13,3 +13,5 @@
  Tested on Windows 10 - Visual Studio 2019 Community - Python 3.7
  
  Written in Indonesia language
+ 
+ SPK - Sistem Pendukung Keputusan = DSS - Decision Support System
