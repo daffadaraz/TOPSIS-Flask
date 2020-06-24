@@ -102,17 +102,17 @@ def topsis(file,filew,isUpload):
     #print("V\n",V)
 
     #RANKING 
-    Kreditor = df
-    ValuedKreditor = Kreditor.assign(Value = V[:,1])
+    Data = df
+    ValuedData = Data.assign(Value = V[:,1])
 
-    Sorted = ValuedKreditor.sort_values(by='Value', ascending=False)
+    Sorted = ValuedData.sort_values(by='Value', ascending=False)
     #print("Sorted\n",Sorted)
     
     #OUTPUT
     data = {
-        "datakreditor": df,
+        "data": df,
         "weight": wgt,
-        "sortedkreditor": Sorted
+        "sorted": Sorted
     } 
     return data
 

@@ -30,7 +30,7 @@
             <th>
                 No.
             </th>
-            {% for data in datas.datakreditor %}
+            {% for data in datas.data %}
             <th>
                 {{ data }}
             </th>
@@ -38,7 +38,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for key,value in datas.datakreditor.iterrows() %}
+        {% for key,value in datas.data.iterrows() %}
         <tr>
             <td class="nama">
                 {{ loop.index }}
@@ -97,7 +97,7 @@
             <th>
                 No.
             </th>
-            {% for data in datas.sortedkreditor %}
+            {% for data in datas.sorted %}
             <th>
                 {{ data }}
             </th>
@@ -105,7 +105,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for key,value in datas.sortedkreditor.iterrows() %}
+        {% for key,value in datas.sorted.iterrows() %}
         <tr {% if loop.index == 1 %}
                 style="font-size: larger;"
             {% elif loop.index == 2 %}

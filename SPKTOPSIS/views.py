@@ -17,7 +17,7 @@ def home():
     """Renders the home page."""
     return render_template(
         'index.html',
-        title='Daffa dan Aufa',
+        title='Kelompok 1',
         year=datetime.now().year,
     )
 
