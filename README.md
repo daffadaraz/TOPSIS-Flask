@@ -20,4 +20,12 @@
  - Me (Developer)
  - Aufa Tafjyra (Documentation)
  
+ ### Side note
+ If this helps you in anyway, you can donate to me
  
+ Daffa Daraz Aslam
+ - BTN - 0033301610005946
+ - DANA / OVO - 081293887668
+ - BCA - 7810572281
+ - $daffadaraz - Jenius
+ - [Paypal.me](https://paypal.me/daffadaraz?)
