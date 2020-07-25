@@ -1,7 +1,7 @@
 # TOPSIS Flask
  DSS TOPSIS Method using flask and .csv as input 
 
- Demo Site - [TOPSIS](http://daffada.pi-dns.me:2204/spk)
+ Demo Site - [TOPSIS](http://daffad.ddns.net:2204/spk)
 
  This is only for university assignment
 
