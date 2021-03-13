@@ -16,10 +16,6 @@
  >
  >SPK - Sistem Pendukung Keputusan == DSS - Decision Support System
 
- # Contributor
- - Me (Developer)
- - Aufa Tafjyra (Documentation)
- 
  ### Side note
  If this helps you in anyway, you can donate to me
  
