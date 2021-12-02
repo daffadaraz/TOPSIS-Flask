@@ -8,8 +8,8 @@
 <span>
     Menggunakan format data .csv (Comma-Seperated Values) yang dapat di download contohnya seperti ini <br/>
     <a href="/static/content/data2.csv" download="contoh_data.csv">Contoh Data</a> --
-    <a href="/static/content/weight2.csv" download="contoh_weight.csv">Contoh Weight</a>
-    (Kandidat Beasiswa berdasar Absen,Nilai,Sikap,Mampu(5 berarti kurang mampu))
+    <a href="/static/content/weight2.csv" download="contoh_weight.csv">Contoh Weight</a> <br/>
+    (Kandidat Smartphone berdasar Ram,Storage,Harga,Kamera, dan Processor (untuk harga 5 berarti murah) )
 </span>
 <p>Jumlah Kireteria <b>harus sama</b> untuk Data dan Weight nya !</p>
 <form method="POST" enctype="multipart/form-data">
@@ -24,11 +24,48 @@
     <h4> DATA CONTOH - Kandidat Kreditor </h4>
 {% endif %}
 
+<h4 style="color:red;">{{msg}}</h4>
+
+{% if datas %}
+    
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
             <h3>Data</h3>
             <table border="1" width="100%" align="center">
+                <thead>
+                    <tr>
+                        <th>
+                            No.
+                        </th>
+                        {% for data in datas.data %}
+                        <th>
+                            {{ data }}
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key,value in datas.data.iterrows() %}
+                        {% if loop.index < 21 %}
+                            <tr>
+                                <td class="nama">
+                                    {{ loop.index }}
+                                </td>
+                                <td class="nama">
+                                    {{ value.0 }}
+                                </td>
+                                {% for a in datas.weight.iterrows() %}
+                                    <td class="lain">
+                                        {{ value[a.0 +1] }}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- <table border="1" width="100%" align="center">
                 <thead>
                     <tr>
                         <th>
@@ -63,11 +100,14 @@
                                 <td class="lain">
                                     {{ value.4 }}
                                 </td>
+                                <td class="lain">
+                                    {{ value.5 }}
+                                </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
                 </tbody>
-            </table>
+            </table> -->
             {% if datas.data | length > 20 %}
                 <span>... Dan seterusnya ...</span>
             {% endif %}
@@ -134,21 +174,16 @@
                                 <td class="nama">
                                     {{ value.0 }}
                                 </td>
-                                <td class="lain">
-                                    {{ value.1 }}
-                                </td>
-                                <td class="lain">
-                                    {{ value.2 }}
-                                </td>
-                                <td class="lain">
-                                    {{ value.3 }}
-                                </td>
-                                <td class="lain">
-                                    {{ value.4 }}
-                                </td>
-                                <td class="lain">
-                                    {{ value.5 }}
-                                </td>
+                                {% for a in datas.weight.iterrows() %}
+                                    <td class="lain">
+                                        {{ value[a.0 +1] }}
+                                    </td>
+                                        {% if(loop.last) %}
+                                        <td class="lain">
+                                            {{ value[a.0 +2] }}
+                                        </td>
+                                        {% endif %}
+                                {% endfor %}
                             </tr>
                         {% endif %}
                     {% endfor %}
@@ -160,5 +195,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 
 {% endblock %}

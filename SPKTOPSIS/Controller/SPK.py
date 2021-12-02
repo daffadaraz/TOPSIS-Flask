@@ -28,6 +28,9 @@ def topsis(file,filew,isUpload):
     #WEIGHT
     weight = wgt2.values 
 
+    if(len(matrix[0,:]) != len(weight[:,0]) ):
+        return False
+    
     # X untuk R
     x = []
     for i in matrix.T:
@@ -113,7 +116,7 @@ def topsis(file,filew,isUpload):
         "data": df,
         "weight": wgt,
         "sorted": Sorted
-    } 
+    }
     return data
 
 #print(topsis())
